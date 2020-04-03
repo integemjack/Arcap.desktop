@@ -83,7 +83,7 @@ jobs:
       
       - run: node -v
       
-      - run: npm i -g gulp-cli@latest
+#       - run: npm i -g gulp-cli@latest
 
       - name: get sha
         id: sha
