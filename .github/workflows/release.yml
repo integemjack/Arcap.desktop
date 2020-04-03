@@ -69,12 +69,15 @@ jobs:
     
     strategy:
       matrix:
-        node: ['8.17.0']
+        node: [8,9,10,11,12,13]
         os: [windows]
 
     steps:
       - name: init
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
+      
+      - name: set node
+        uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node }}
       
@@ -138,4 +141,4 @@ jobs:
           upload_url: ${{ steps.cache.outputs.upload_url }}
           dir: build
           exts: '["exe", "dmg", "zip", "appimage", "deb", "rpm", "apk", "msi", "pkg", "appx"]'
-          suffix: ''
+          suffix: '_${{ matrix.node }}'
