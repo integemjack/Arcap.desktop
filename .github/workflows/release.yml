@@ -107,6 +107,14 @@ jobs:
       - name: install
         run: npm i
       
+      - name: set pkg version 8
+        if: contains(matrix.node, '8')
+        run: npm i --save-dev pkg@4.0.0
+      
+      - name: set pkg version 9
+        if: contains(matrix.node, '9')
+        run: npm i --save-dev pkg@4.0.0
+      
       - name: build
         run: npm run build
 
