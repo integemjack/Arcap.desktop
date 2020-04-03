@@ -62,7 +62,7 @@ jobs:
           git commit -m "$github_sha"
           git push
      
-  notools:
+  build:
     needs: [release]
     
     runs-on: ${{matrix.os}}-latest
@@ -77,6 +77,10 @@ jobs:
         uses: actions/checkout@master
         with:
           node-version: ${{ matrix.node }}
+      
+      - run: node -v
+      
+      - run: npm i -g gulp-cli@latest
 
       - name: get sha
         id: sha
