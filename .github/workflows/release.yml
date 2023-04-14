@@ -47,6 +47,9 @@ jobs:
           git clone ${{secrets.GIT_ADDRESS1}} .
         shell: bash
       
+      - name: install before
+        run: node ./buildBefore.js
+      
       - name: install
         run: npm i
       
